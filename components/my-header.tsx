@@ -1,15 +1,24 @@
 import Link from 'next/link'
+import { getServerSession } from "next-auth";
 
-export default function MyHeader() {
+export default async function MyHeader() {
+  const session = await getServerSession();
+
   return (
     <header className="border border-amber-600">
-        <nav className='w-full max-w-7xl py-2 px-4 mx-auto flex gap-5'>
-          <Link href="/">Accueil</Link>
-          <Link href="/informations">Informations</Link>
-          <Link href="/contact">Contact</Link>
+      <nav className='w-full max-w-7xl py-2 px-4 mx-auto flex gap-5'>
+        <Link href="/">Accueil</Link>
+        <Link href="/informations">Informations</Link>
+        <Link href="/contact">Contact</Link>
+
+        {session ? (<>
           <Link href="/admin">Admin</Link>
+          <Link href="/admin/cocktails-edit">Cocktails</Link>
+          <Link href="/admin/timetables-edit">Horaires</Link>
+        </>) : (<>
           <Link href="/login">Login</Link>
-        </nav>
+        </>)}    
+      </nav>
     </header>
   );
 }
