@@ -1,9 +1,9 @@
 export default function Home() {
   return (
-    <div className="">
-      <main className="">
+    <>
+      <div className="">
         <h1>coucou</h1>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
