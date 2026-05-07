@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "cocktail 1",
+        "description": "Lorem ipsum"
+    },
+    {
+        "id": 2,
+        "name": "cocktail 2",
+        "description": "Lorem ipsum ipsum"
+    },
+    {
+        "id": 3,
+        "name": "cocktail 3",
+        "description": "Lorem ipsum ipsum ipsum"
+    }
+]
