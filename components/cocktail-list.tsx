@@ -1,16 +1,10 @@
-"use client";
-
 import Link from 'next/link'
-import { useEffect, useState } from "react";
 import { cocktailsType, cocktailType } from "@/domain/models/cocktail";
 import { getCocktails } from "@/domain/services/cocktail";
 
-export default function CocktailList() {
-  const [cocktails, setCocktails] = useState<cocktailsType>([]);
+export default async function CocktailList() {
 
-  useEffect(() => {
-    getCocktails().then(setCocktails);
-  }, []);
+  const cocktails: cocktailsType|undefined = await getCocktails();
 
   return (
     <ul className="flex flex-wrap gap-5">
