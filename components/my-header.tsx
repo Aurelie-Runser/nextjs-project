@@ -13,8 +13,8 @@ export default async function MyHeader() {
 
         {session ? (<>
           <Link href="/admin">Admin</Link>
-          <Link href="/admin/cocktails-edit">Cocktails</Link>
-          <Link href="/admin/timetables-edit">Horaires</Link>
+          <Link href="/admin/cocktails-edit">Edition - Cocktails</Link>
+          <Link href="/admin/timetables-edit">Edition - Horaires</Link>
         </>) : (<>
           <Link href="/login">Login</Link>
         </>)}    
