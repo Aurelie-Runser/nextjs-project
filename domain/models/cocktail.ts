@@ -5,3 +5,8 @@ export type cocktailType = {
 };
 
 export type cocktailsType = cocktailType[];
+
+export type cocktailNewType = {
+    name: string;
+    description: string;
+};

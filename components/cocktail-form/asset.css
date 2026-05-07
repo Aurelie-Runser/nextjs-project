@@ -1,0 +1,19 @@
+dialog {
+  display: block;
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 90%;
+  max-width: 1000px;
+  padding: 20px;
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+}
+
+dialog::backdrop {
+  background: #000000;
+  filter: blur(.5);
+}

@@ -38,12 +38,12 @@ export default function Login() {
       }
 
       <form onSubmit={handleLogin}>
-        <div>
+        <div className="input-container">
           <label htmlFor="username">Nom</label>
           <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} required/>
         </div>
 
-        <div>
+        <div className="input-container">
           <label htmlFor="password">Mot de passe</label>
           <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
         </div>
