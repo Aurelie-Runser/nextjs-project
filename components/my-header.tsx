@@ -8,6 +8,7 @@ export default function MyHeader() {
           <Link href="/informations">Informations</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/admin">Admin</Link>
+          <Link href="/login">Login</Link>
         </nav>
     </header>
   );
