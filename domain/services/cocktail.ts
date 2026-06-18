@@ -12,7 +12,12 @@ export async function getCocktailById(cocktailId: number): Promise<cocktailType>
 export async function addCocktail(cocktail: cocktailNewType): Promise<cocktailType> {
   return apiClient<cocktailType>("cocktails", {
     method: "POST",
-
     body: JSON.stringify(cocktail),
+  });
+}
+
+export async function deleteCocktail(cocktailId: number): Promise<null> {
+  return apiClient<null>(`cocktails/${cocktailId}`, {
+    method: "DELETE"
   });
 }

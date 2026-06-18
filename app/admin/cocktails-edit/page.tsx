@@ -9,6 +9,7 @@ import {
 
 import {
   getCocktails,
+  deleteCocktail,
 } from "@/domain/services/cocktail";
 
 import EditIcon from "@/components/icons/edit-icon";
@@ -33,6 +34,14 @@ export default function CocktailsEdit() {
     setIsShowForm(true);
   }
 
+  async function deleteCocktailGestion(cocktailId:number) {
+    await deleteCocktail(cocktailId)
+
+    setCocktails((prev) =>
+      prev.filter((cocktail) => cocktail.id !== cocktailId)
+    );
+  }
+  
   function handleSuccess() {
     setIsShowForm(false);
 
@@ -88,6 +97,7 @@ export default function CocktailsEdit() {
                   </button>
 
                   <button
+                    onClick={() => deleteCocktailGestion(cocktail.id)}
                     aria-label="supprimer"
                     className="bg-red-700"
                   >

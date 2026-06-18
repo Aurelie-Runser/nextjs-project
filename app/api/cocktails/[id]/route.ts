@@ -50,13 +50,33 @@ export async function PUT(req: Request,
 export async function DELETE(req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
+  try {
+    const { id } = await params;
 
-  const data = JSON.parse(readFileSync(filePath, "utf-8"));
+    const data: cocktailsType = JSON.parse(readFileSync(filePath, "utf-8"));
 
-  const filtered = data.filter((c: cocktailType) => c.id !== Number(id));
+    const exists = data.some((c) => c.id === Number(id));
 
-  writeFileSync(filePath, JSON.stringify(filtered, null, 2));
+    if (!exists) {
+      return new Response(null, {
+        status: 404,
+        statusText: "Cocktail not found",
+      });
+    }
 
-  return Response.json(filtered);
+    const filtered = data.filter((c) => c.id !== Number(id));
+
+    writeFileSync(filePath, JSON.stringify(filtered, null, 2));
+
+    return new Response(null, {
+      status: 204,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return new Response(null, {
+      status: 500,
+      statusText: "Internal Server Error",
+    });
+  }
 }
