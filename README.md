@@ -30,3 +30,9 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - comprend quand utiliser le ssr et csr
 - mise en place de l'autentification avec la librairie "next-auth"
 - sécurisation de certaines routes
+
+## 18/06/2026
+
+- utilisation variable d'environnement pour l'appel API
+- ajout création des cocktails
+- ajout suppression des cocktails
