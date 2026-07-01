@@ -34,5 +34,9 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 ## 18/06/2026
 
 - utilisation variable d'environnement pour l'appel API
-- ajout création des cocktails
-- ajout suppression des cocktails
+- ajout création d'un cocktail
+- ajout suppression d'un cocktail
+
+## 01/07/2026
+
+- ajout modification d'un cocktail
