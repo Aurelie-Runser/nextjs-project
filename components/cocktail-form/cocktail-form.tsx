@@ -10,28 +10,34 @@ import {
 
 import {
   cocktailNewType,
+  cocktailType,
 } from "@/domain/models/cocktail";
 
 import {
   addCocktail,
+  updateCocktail
 } from "@/domain/services/cocktail";
 
 type Props = {
   onSuccess: () => void;
   onClose: () => void;
+  cocktail: cocktailType | undefined
 };
 
 export default function CocktailForm({
   onSuccess,
   onClose,
+  cocktail
 }: Props) {
   const dialogRef =
     useRef<HTMLDialogElement>(null);
 
+  const isNewCocktail = !cocktail;
+
   const [newCocktail, setNewCocktail] =
     useState<cocktailNewType>({
-      name: "",
-      description: "",
+      name: cocktail?.name ?? "",
+      description: cocktail?.description ?? "",
     });
 
   useEffect(() => {
@@ -43,7 +49,17 @@ export default function CocktailForm({
   ) {
     e.preventDefault();
 
-    await addCocktail(newCocktail);
+    if ( isNewCocktail) {
+      await addCocktail(newCocktail);
+    } else {
+
+      const updatedCocktail:cocktailType = {
+        id: cocktail.id,
+        ... newCocktail
+      }
+      
+      await updateCocktail(updatedCocktail);
+    }
 
     setNewCocktail({
       name: "",

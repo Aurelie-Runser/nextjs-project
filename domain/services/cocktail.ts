@@ -16,6 +16,13 @@ export async function addCocktail(cocktail: cocktailNewType): Promise<cocktailTy
   });
 }
 
+export async function updateCocktail(cocktail: cocktailType): Promise<cocktailType> {
+  return apiClient<cocktailType>(`cocktails/${cocktail.id}`, {
+    method: "PUT",
+    body: JSON.stringify(cocktail),
+  });
+}
+
 export async function deleteCocktail(cocktailId: number): Promise<null> {
   return apiClient<null>(`cocktails/${cocktailId}`, {
     method: "DELETE"

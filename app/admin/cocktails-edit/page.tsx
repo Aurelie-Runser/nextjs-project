@@ -19,8 +19,9 @@ import CocktailForm from "@/components/cocktail-form/cocktail-form";
 
 export default function CocktailsEdit() {
   const [cocktails, setCocktails] = useState<cocktailsType>([]);
-
+  
   const [isShowForm, setIsShowForm] = useState<boolean>(false);
+  const [cocktailSelected, setCocktailSelected] = useState<cocktailType | undefined>();
 
   function loadCocktails() {
     getCocktails().then(setCocktails);
@@ -30,7 +31,8 @@ export default function CocktailsEdit() {
     loadCocktails();
   }, []);
 
-  function showForm() {
+  function showForm(cocktail?: cocktailType) {
+    setCocktailSelected(cocktail); 
     setIsShowForm(true);
   }
 
@@ -57,7 +59,7 @@ export default function CocktailsEdit() {
       <hr />
 
       <button
-        onClick={showForm}
+        onClick={() => showForm()}
         className="bg-green-700 mb-8"
       >
         Ajouter un Cocktail
@@ -80,16 +82,17 @@ export default function CocktailsEdit() {
                 key={cocktail.id}
                 className="border"
               >
-                <td>{cocktail.id}</td>
+                <td className="p-1">{cocktail.id}</td>
 
-                <td>{cocktail.name}</td>
+                <td className="p-1">{cocktail.name}</td>
 
-                <td>
+                <td className="p-1">
                   {cocktail.description}
                 </td>
 
-                <td className="flex gap-1">
+                <td className="p-1 flex gap-1">
                   <button
+                    onClick={() => showForm(cocktail)}
                     aria-label="modifier"
                     className="bg-amber-500"
                   >
@@ -114,6 +117,7 @@ export default function CocktailsEdit() {
         <CocktailForm
           onSuccess={handleSuccess}
           onClose={() => setIsShowForm(false)}
+          cocktail={cocktailSelected}
         />
       )}
     </>
