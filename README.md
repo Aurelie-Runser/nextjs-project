@@ -20,7 +20,11 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 <hr/>
 
-## 07/05/2026
+## Etapes
+
+Pour plus de détails, aller voir le fichier `PROCEDE.md`.
+
+### 07/05/2026
 
 - initialisation du projet
 - création de pages statiques, composants et layouts
@@ -31,12 +35,12 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - mise en place de l'autentification avec la librairie "next-auth"
 - sécurisation de certaines routes
 
-## 18/06/2026
+### 18/06/2026
 
 - utilisation variable d'environnement pour l'appel API
 - ajout création d'un cocktail
 - ajout suppression d'un cocktail
 
-## 01/07/2026
+### 01/07/2026
 
 - ajout modification d'un cocktail
